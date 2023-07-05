@@ -9,12 +9,12 @@ const options = {
 	}
 };
 
-async function getJokes(){
+async function fetchCoins(){
     const response = await fetch(url, options);
     return response.json();
 }
 
 export async function GET(request){
-    const data = await getJokes();
+    const data = await fetchCoins();
     return NextResponse.json(data.data.coins);
 }
