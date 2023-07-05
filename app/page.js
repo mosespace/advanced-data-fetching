@@ -1,25 +1,29 @@
 "use client";
-import Image from 'next/image'
-import { fetchcoins } from './api/coins/route';
+// import Coin from "@/components/Coin";
+import { useEffect, useState } from "react";
+import Coin from "./components/Coin";
 
-export default async function Page() {
-  // const [coins, setCoins] = useState([])
-  //  console.log(coins);
+export default function Page() {
+  const [coins, setCoins] = useState([]);
+  console.log(coins);
+  async function fetchData() {
+    const response = await fetch("/api/coins");
+    const coins = await response.json();
+    setCoins(coins);
+  }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // async function getCoins (){
-  //   const response = await fetch('/api/coins')
-  //   const coins = await response.json();
-
-  //   setCoins(coins);
-  // }
-
-  // const coins = await getCoins();
-  // console.log(coins);
-
-    // useEffect(()=>{
-    //   getCoins();
-    // },[])
   return (
-    <div>page</div>
-  )
+   <div>
+    {
+      <section>
+        {coins.map((coin) =>{
+          return <Coin data={coin} key={coin.uuid}/>
+        })}
+      </section>
+    }
+   </div>
+  );
 }
