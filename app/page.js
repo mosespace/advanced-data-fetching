@@ -1,11 +1,10 @@
 "use client";
-// import Coin from "@/components/Coin";
 import { useEffect, useState } from "react";
 import Coin from "./components/Coin";
 
 export default function Page() {
   const [coins, setCoins] = useState([]);
-  console.log(coins);
+  // console.log(coins);
   async function fetchData() {
     const response = await fetch("/api/coins");
     const coins = await response.json();
