@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: aliceblue;
+}
+
+.container {
+  /* Set the container to occupy the full viewport height */
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    gap: 2rem;
+    padding: 5rem;
+    align-items: center;
+    justify-content: center;
+    // padding: 5rem 3rem;
+  .section-title {
+    padding: 1rem 0;
+    text-align: center;
+  }
+}
